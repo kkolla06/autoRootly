@@ -2,6 +2,10 @@
 
 End-to-end iOS automation suite for the Rootly app — built with Appium + pytest. Covers auth, home, alerts, incidents, shifts, settings and headline e2e journeys, plus a manual bug report.
 
+- **Github repo**: https://github.com/kkolla06/autoRootly
+- **Bug Report**: https://docs.google.com/document/d/1syRAMvD9rEMA4RRxix-TliYbRv0k75VAg8zpBQiGc4M
+- **Demo**: https://drive.google.com/file/d/1DFWA3VX2marKM9jqlAEgOaPfblh5rNlB
+
 ## What it covers
 
 - **Auth**: landing → web login (email/password, Google, Slack, SSO), logout, re-login.
