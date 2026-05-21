@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Rootly" label="Rootly" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="" processId="9243" bundleId="com.rootly.app">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="67" width="390" height="72" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="67" width="390" height="72" index="1" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="67" width="390" height="48" index="0" traits=""/>
+                    <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Select Responders" name="Select Responders" label="Select Responders" enabled="true" visible="true" accessible="true" x="108" y="87" width="174" height="28" index="1" traits="StaticText"/>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+                <XCUIElementTypeTextField type="XCUIElementTypeTextField" name="Search" label="Search" enabled="true" visible="true" accessible="true" x="16" y="146" width="358" height="49" index="2" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="3" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="222" width="390" height="622" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                    <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="false" accessible="false" x="0" y="222" width="390" height="622" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="222" width="390" height="110" index="0" traits=""/>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="responder_section_escalationPath" label="Escalation Policies, 1 results&#10;Escalation Policies (1)" enabled="true" visible="true" accessible="true" x="0" y="222" width="390" height="50" index="1" traits="Button"/>
+                      <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="0" name="responder_item_escalationPath_2c445dd0-87d9-452a-9cab-23e576817dfb" label="SRE (Site Reliability Engineering) Team&#10;SRE (Site Reliability Engineering) Team" enabled="false" visible="true" accessible="true" x="0" y="271" width="390" height="61" index="2" traits="NotEnabled, ToggleButton, Button"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="responder_section_service" label="Services, 0 results&#10;Services (0)" enabled="false" visible="true" accessible="true" x="0" y="331" width="390" height="50" index="2" traits="NotEnabled"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="responder_section_team" label="Teams, 0 results&#10;Teams (0)" enabled="false" visible="true" accessible="true" x="0" y="380" width="390" height="50" index="3" traits="NotEnabled"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="4" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="429" width="390" height="110" index="0" traits=""/>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="responder_section_people" label="People, 1 results&#10;People (1)" enabled="true" visible="true" accessible="true" x="0" y="429" width="390" height="50" index="1" traits="Button"/>
+                      <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="0" name="responder_item_people_254874" label="Kaushik Kolla&#10;KK&#10;Kaushik Kolla" enabled="false" visible="true" accessible="true" x="0" y="478" width="390" height="61" index="2" traits="NotEnabled, ToggleButton, Button"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

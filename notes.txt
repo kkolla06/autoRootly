@@ -1,0 +1,161 @@
+Here's the full map:
+
+[test_landing.py]
+    test_landing_screen_loads_on_cold_launch
+    test_log_in_button_opens_web_login_form
+        test_landing_shown_after_clear_cache_logout         TODO: after login fix
+
+
+[test_login.py]
+    test_web_login_form_shows_all_expected_fields
+    test_cancel_from_web_login_returns_to_landing
+    test_valid_credentials_reach_home
+    test_combined_negative_login_with_cancel_refresh
+    test_wrong_password_shows_error_or_stays_on_form
+    test_show_hide_password_toggle
+    test_remember_me_toggle_works
+    test_sso_link_opens_sso_configuration
+    test_sso_valid_login_reaches_home
+    test_google_sso_opens_google_auth
+    test_google_sso_valid_reaches_home
+    test_google_sso_cancel_returns_to_login_form
+    test_slack_sso_opens_slack_auth
+    test_slack_sso_valid_reaches_home
+    test_slack_sso_cancel_returns_to_login_form
+    test_create_account_entry_point_discoverable
+    test_create_account_valid_info
+    test_create_account_duplicate_email
+    test_create_account_weak_password
+    test_create_account_cancel
+    test_primary_logout_via_clear_cache_and_data
+    test_clear_cache_confirmation_can_be_cancelled
+    test_log_out_button_known_web_cache_bug
+    test_re_login_after_clear_cache_works
+    test_email_with_leading_trailing_spaces
+    test_autofill_modal_dismiss_keeps_form_usable
+    test_autofill_modal_cancel_then_manual_entry
+    test_double_tap_sign_in
+
+
+[test_home.py]
+    test_home_loads_with_all_sections
+    test_oncall_status_text_is_valid        TODO: add testing for other status texts eg. "you've been paged"
+    test_settings_avatar_opens_settings
+    test_home_is_scrollable
+        test_paged_home_banner_after_self_page      TODO: skipped idk
+        test_view_alert_opens_paged_alert           TODO: skipped idk
+        test_paged_home_clears_after_resolve        TODO: skipped idk
+
+
+✅[test_navigation.py]
+    test_bottom_nav_present_across_main_screens
+    test_menu_toggle_opens_secondary_options
+    test_deep_navigation_back_works
+    test_settings_avatar_consistent_across_screens
+    test_plus_tab_opens_create_menu
+
+
+[test_alerts.py]        TODO: we need to set it up properly where we create 1/2 alerts then go through the rest of it, lets assume we have 0 alerts when we start
+    test_alerts_list_loads
+    test_alerts_list_shows_rows_with_metadata
+    test_alerts_filters_combined
+    test_alerts_sort_and_views
+    test_tapping_alert_opens_detail             TODO: remove - tap tested by test_alert_detail_header_combined
+    test_alerts_list_scrollable
+    test_alert_detail_header_combined           TODO: verify visibility + accuracy of few alert details too
+    test_alert_details_tab_default_and_cards    TODO: how is this different? from prev test case?
+    test_alert_all_three_tabs_cycle
+    test_escalate_button_visible_on_resolved
+    test_back_from_alert_detail
+    test_alert_state_machine
+    test_alert_action_menu_options_by_state
+    test_alert_creation_combined
+    test_select_responders_combined
+    test_escalate_from_action_menu_on_triggered
+    test_escalate_primary_action_on_resolved
+    test_add_note_flow
+    test_mark_as_noise_flow
+    test_create_incident_from_alert
+    test_share_alert
+
+
+[test_incident_lifecycle.py]
+    test_incidents_list_loads
+    test_incidents_list_shows_rows_with_metadata
+    test_incidents_filters_combined
+    test_tapping_incident_opens_detail
+    test_incidents_list_is_scrollable
+    test_incident_detail_loads_with_header_data
+    test_details_tab_selected_by_default
+    test_alerts_tab_loads
+    test_add_related_alert_button_visible
+    test_back_navigation_returns_to_list
+    test_incident_state_machine
+    test_create_incident_parametrized
+    test_create_incident_validation_combined
+
+
+[test_shifts.py]
+    test_navigate_to_shifts
+    test_my_shifts_and_all_shifts_tabs
+    test_empty_state_message
+    test_settings_avatar_accessible_from_shifts
+    test_select_schedules_combined
+    test_month_picker_open_close
+
+
+✅[test_settings.py]
+    test_settings_opens_from_home
+    test_settings_profile_info_combined
+    test_all_menu_items_tappable
+    test_on_call_notifications_opens
+    test_notification_settings_opens
+    test_appearance_row_opens   
+    test_clear_cache_shows_confirmation
+    test_app_version_format     
+    test_back_navigation_from_settings
+
+
+[test_settings_drawer.py]
+    test_settings_drawer_distinct_from_full_page
+
+
+[test_edge_cases.py]
+    test_rapid_tab_switching_does_not_crash
+    test_double_tap_submit_no_duplicates
+    test_open_create_close_reopen_form_is_clean
+    test_cold_start_after_terminate
+    test_app_background_and_foreground
+    test_resolved_alert_state_appropriate_actions
+    test_filter_combinations
+    test_list_scroll_performance_smoke
+    test_open_resolved_alert_then_navigate_back
+    test_sheet_dismissal_by_outside_tap
+    test_toast_lifecycle
+    test_long_input_handling
+    test_emoji_and_special_chars_in_title
+    test_rapid_double_tap_on_slide_handle
+    test_cancel_mid_slide
+    test_background_during_create_form_preserves_fields
+    test_resolved_alert_action_menu_shape
+
+
+[test_e2e.py]
+    test_e2e_login_alert_open
+    test_e2e_alert_escalate_primary_button
+    test_e2e_oncall_status_check
+    test_e2e_full_alert_investigation
+    test_e2e_logout_and_relogin_clear_cache
+    test_e2e_oncall_paging_journey
+    test_e2e_escalation_journey
+    test_e2e_create_incident_from_alert
+    test_e2e_google_sso
+    test_e2e_slack_sso
+
+
+**Total: 127 test cases across 11 files**
+
+
+
+
+open /Users/srini/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent/WebDriverAgent.xcodeproj

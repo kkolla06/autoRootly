@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Partial capture: the action menu nodes revealed after tapping the + button
+     on a Resolved alert. Escalate is absent (it is the primary action surface
+     instead). Full-page wrapper not captured in this session. -->
+<XCUIElementTypeOther>
+  <XCUIElementTypeScrollView/>
+  <XCUIElementTypeStaticText value="Add note" name="Add note" label="Add note"/>
+  <XCUIElementTypeImage name="Mark as noise" label="Mark as noise"/>
+  <XCUIElementTypeImage name="Create Incident" label="Create Incident"/>
+  <XCUIElementTypeStaticText value="Share" name="Share" label="Share"/>
+</XCUIElementTypeOther>

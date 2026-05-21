@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Rootly" label="Rootly" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="" processId="641" bundleId="com.rootly.app">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="103" index="0" traits=""/>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="103" index="0" traits=""/>
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" name="You're not on-call" label="You're not on-call" enabled="true" visible="true" accessible="true" x="16" y="54" width="254" height="42" index="1" traits="Header"/>
+                        <XCUIElementTypeButton type="XCUIElementTypeButton" name="settings_avatar_key" label="Settings Avatar&#10;KK" enabled="true" visible="true" accessible="true" x="354" y="63" width="24" height="24" index="2" traits="Button"/>
+                      </XCUIElementTypeOther>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="103" index="2" traits=""/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="true" accessible="true" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Shifts and Escalation Policies&#10;assigned to you will show here." name="Shifts and Escalation Policies&#10;assigned to you will show here." label="Shifts and Escalation Policies&#10;assigned to you will show here." enabled="true" visible="true" accessible="true" x="36" y="174" width="318" height="55" index="1" traits="StaticText"/>
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="276" width="390" height="568" index="0" traits=""/>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                            <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="false" accessible="false" x="0" y="276" width="390" height="569" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="MY ACTIVITY" name="MY ACTIVITY" label="MY ACTIVITY" enabled="true" visible="true" accessible="true" x="20" y="292" width="97" height="22" index="1" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Coverage Requests" name="coverage_requests" label="Coverage Requests" enabled="true" visible="true" accessible="true" x="20" y="329" width="350" height="63" index="2" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Ongoing Alerts" name="ongoing_alerts" label="Ongoing Alerts" enabled="true" visible="true" accessible="true" x="20" y="403" width="350" height="63" index="3" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Ongoing Incidents" name="ongoing_incidents" label="Ongoing Incidents" enabled="true" visible="true" accessible="true" x="20" y="477" width="350" height="63" index="4" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="MY PERFORMANCE" name="MY PERFORMANCE" label="MY PERFORMANCE" enabled="true" visible="true" accessible="true" x="20" y="563" width="143" height="22" index="5" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Time to ack&#10;Stats will show when more data is available" name="Time to ack&#10;Stats will show when more data is available" label="Time to ack&#10;Stats will show when more data is available" enabled="true" visible="true" accessible="true" x="20" y="600" width="167" height="126" index="6" traits="StaticText"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Time to resolve&#10;Stats will show when more data is available" name="Time to resolve&#10;Stats will show when more data is available" label="Time to resolve&#10;Stats will show when more data is available" enabled="true" visible="true" accessible="true" x="203" y="600" width="167" height="126" index="7" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="35" y="743" width="269" height="58" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="40" y="749" width="258" height="46" index="0" traits=""/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_home" label="Home&#10;Home" enabled="true" visible="true" accessible="true" x="40" y="749" width="98" height="46" index="1" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_alerts" label="Alerts&#10;Alerts" enabled="true" visible="true" accessible="true" x="141" y="749" width="50" height="46" index="2" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_incident" label="Incidents&#10;Incidents" enabled="true" visible="true" accessible="true" x="194" y="749" width="51" height="46" index="3" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_schedules" label="Shifts&#10;Shifts" enabled="true" visible="true" accessible="true" x="247" y="749" width="51" height="46" index="4" traits="Image"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_menu_toggle" label="Menu" enabled="true" visible="true" accessible="true" x="303" y="749" width="47" height="46" index="3" traits="Image"/>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Partial capture: action menu nodes revealed after tapping the + button
+     on an Acknowledged alert. Resolve is absent (only present in Triggered).
+     Escalate is present. -->
+<XCUIElementTypeOther>
+  <XCUIElementTypeScrollView/>
+  <XCUIElementTypeStaticText value="Escalate" name="Escalate" label="Escalate"/>
+  <XCUIElementTypeStaticText value="Add note" name="Add note" label="Add note"/>
+  <XCUIElementTypeImage name="Mark as noise" label="Mark as noise"/>
+  <XCUIElementTypeImage name="Create Incident" label="Create Incident"/>
+  <XCUIElementTypeStaticText value="Share" name="Share" label="Share"/>
+</XCUIElementTypeOther>

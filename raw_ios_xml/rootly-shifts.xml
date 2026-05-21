@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Rootly" label="Rootly" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="" processId="641" bundleId="com.rootly.app">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="No shifts available. Please adjust your schedule filters to view upcoming shifts." label="No shifts available. Please adjust your schedule filters to view upcoming shifts." enabled="true" visible="true" accessible="true" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="149" index="0" traits=""/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="Shifts&#10;May " label="Shifts&#10;May " enabled="true" visible="true" accessible="true" x="16" y="48" width="294" height="41" index="1" traits="Header, Image"/>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="KK" label="KK" enabled="true" visible="true" accessible="true" x="326" y="47" width="44" height="43" index="2" traits="Button"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="0 Schedules" label="0 Schedules" enabled="true" visible="true" accessible="true" x="20" y="99" width="127" height="29" index="3" traits="Image"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="My shifts" name="My shifts" label="My shifts" enabled="true" visible="true" accessible="true" x="163" y="99" width="76" height="29" index="4" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="All shifts" name="All shifts" label="All shifts" enabled="true" visible="true" accessible="true" x="246" y="98" width="73" height="31" index="5" traits="StaticText"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="74" y="315" width="242" height="162" index="2" traits="Image"/>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="35" y="743" width="269" height="58" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="40" y="749" width="258" height="46" index="0" traits=""/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_home" label="Home&#10;Home" enabled="true" visible="true" accessible="true" x="40" y="749" width="52" height="46" index="1" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_alerts" label="Alerts&#10;Alerts" enabled="true" visible="true" accessible="true" x="95" y="749" width="50" height="46" index="2" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_incident" label="Incidents&#10;Incidents" enabled="true" visible="true" accessible="true" x="148" y="749" width="50" height="46" index="3" traits="Image"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_schedules" label="Shifts&#10;Shifts" enabled="true" visible="true" accessible="true" x="201" y="749" width="94" height="46" index="4" traits="Image"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeImage type="XCUIElementTypeImage" name="nav_menu_toggle" label="Menu" enabled="true" visible="true" accessible="true" x="303" y="749" width="47" height="46" index="3" traits="Image"/>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

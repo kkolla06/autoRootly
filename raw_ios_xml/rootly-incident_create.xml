@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Rootly" label="Rootly" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="" processId="15627" bundleId="com.rootly.app">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="103" index="0" traits=""/>
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="Close" label="Close" enabled="true" visible="true" accessible="true" x="8" y="55" width="40" height="40" index="1" traits="Button"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="Create Incident" label="Create Incident" enabled="true" visible="true" accessible="true" x="122" y="61" width="146" height="28" index="2" traits="Header"/>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="103" width="390" height="539" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="false" accessible="false" x="0" y="103" width="390" height="539" index="0" traits=""/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Title" name="Title" label="Title" enabled="true" visible="true" accessible="true" x="32" y="135" width="27" height="18" index="1" traits="StaticText"/>
+                      <XCUIElementTypeTextField type="XCUIElementTypeTextField" name="Add a brief incident title" label="Add a brief incident title" enabled="true" visible="true" accessible="true" x="20" y="153" width="350" height="48" index="2" traits=""/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Summary" name="Summary" label="Summary" enabled="true" visible="true" accessible="true" x="32" y="245" width="59" height="18" index="3" traits="StaticText"/>
+                      <XCUIElementTypeTextField type="XCUIElementTypeTextField" name="Describe the impact of the incident" label="Describe the impact of the incident" enabled="true" visible="true" accessible="true" x="20" y="263" width="350" height="48" index="4" traits=""/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Severity" name="Severity" label="Severity" enabled="true" visible="true" accessible="true" x="20" y="343" width="350" height="56" index="5" traits="StaticText"/>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="Types" label="Types" enabled="true" visible="true" accessible="true" x="20" y="431" width="350" height="48" index="6" traits="Button"/>
+                      <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="0" name="Mark as Private" label="Mark as Private" enabled="true" visible="true" accessible="true" x="20" y="511" width="350" height="40" index="7" traits="ToggleButton, Button"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Private incidents create private Slack channels and are only accessible to users with private incident permissions." name="Private incidents create private Slack channels and are only accessible to users with private incident permissions." label="Private incidents create private Slack channels and are only accessible to users with private incident permissions." enabled="true" visible="true" accessible="true" x="20" y="559" width="350" height="63" index="8" traits="StaticText"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="3" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="create_incident_page_create_button" label="Create Incident" enabled="true" visible="true" accessible="true" x="0" y="731" width="390" height="113" index="0" traits=""/>
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="Create Incident" label="Create Incident" enabled="true" visible="true" accessible="true" x="20" y="751" width="350" height="52" index="1" traits="Button"/>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="844" width="390" height="233" index="1" traits=""/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

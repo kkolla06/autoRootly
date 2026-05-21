@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Rootly" label="Rootly" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="" processId="641" bundleId="com.rootly.app">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="0" traits=""/>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="103" index="0" traits=""/>
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" visible="true" accessible="true" x="0" y="47" width="48" height="56" index="1" traits="Button"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="Settings" label="Settings" enabled="true" visible="true" accessible="true" x="48" y="63" width="66" height="24" index="2" traits="Header"/>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="2" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="103" width="390" height="741" index="0" traits=""/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="390" height="844" index="1" traits="">
+                      <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="true" accessible="true" x="0" y="103" width="390" height="741" index="0" traits=""/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="KK" name="KK" label="KK" enabled="true" visible="true" accessible="true" x="35" y="149" width="38" height="38" index="1" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Kaushik Kolla" name="Kaushik Kolla" label="Kaushik Kolla" enabled="true" visible="true" accessible="true" x="116" y="131" width="109" height="24" index="2" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="kaushik.kolla@visaero.com" name="kaushik.kolla@visaero.com" label="kaushik.kolla@visaero.com" enabled="true" visible="true" accessible="true" x="116" y="157" width="193" height="21" index="3" traits="StaticText"/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="72" y="188" width="20" height="16" index="4" traits="Image"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Organization Visaero&#10;Visaero" name="settings_organization" label="Organization Visaero&#10;Visaero" enabled="true" visible="true" accessible="true" x="116" y="188" width="67" height="25" index="5" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Members&#10;Members" name="settings_members" label="Members&#10;Members" enabled="true" visible="true" accessible="true" x="20" y="241" width="350" height="56" index="6" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="On-Call Notifications&#10;On-Call Notifications" name="settings_on_call_notifications" label="On-Call Notifications&#10;On-Call Notifications" enabled="true" visible="true" accessible="true" x="20" y="321" width="350" height="56" index="7" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Appearance&#10;Appearance&#10;System" name="settings_appearance" label="Appearance&#10;Appearance&#10;System" enabled="true" visible="true" accessible="true" x="20" y="378" width="350" height="56" index="8" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Language&#10;Language&#10;English" name="settings_language" label="Language&#10;Language&#10;English" enabled="true" visible="true" accessible="true" x="20" y="435" width="350" height="56" index="9" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Email Support&#10;Email Support" name="settings_email_support" label="Email Support&#10;Email Support" enabled="true" visible="true" accessible="true" x="20" y="515" width="350" height="56" index="10" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="About&#10;About&#10;v2.13.1" name="settings_about" label="About&#10;About&#10;v2.13.1" enabled="true" visible="true" accessible="true" x="20" y="595" width="350" height="56" index="11" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Troubleshooting&#10;Troubleshooting" name="settings_troubleshooting" label="Troubleshooting&#10;Troubleshooting" enabled="true" visible="true" accessible="true" x="20" y="652" width="350" height="56" index="12" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Notification Settings&#10;Notification Settings" name="settings_notification_settings" label="Notification Settings&#10;Notification Settings" enabled="true" visible="true" accessible="true" x="20" y="709" width="350" height="56" index="13" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Clear Cache &amp; Data&#10;Clear Cache &amp; Data" name="settings_clear_cache_and_data" label="Clear Cache &amp; Data&#10;Clear Cache &amp; Data" enabled="true" visible="true" accessible="true" x="20" y="766" width="350" height="56" index="14" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Update Contact Card&#10;Update Contact Card&#10;Update the Rootly contact card. This makes sure you know it's Rootly calling and not spam." name="settings_update_contact_card" label="Update Contact Card&#10;Update Contact Card&#10;Update the Rootly contact card. This makes sure you know it's Rootly calling and not spam." enabled="true" visible="true" accessible="true" x="20" y="823" width="350" height="21" index="15" traits="StaticText"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Log out&#10;Log out" name="settings_log_out" label="Log out&#10;Log out" enabled="true" visible="false" accessible="true" x="0" y="0" width="0" height="0" index="16" traits="StaticText"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>
