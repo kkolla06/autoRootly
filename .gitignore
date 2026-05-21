@@ -8,3 +8,5 @@ assets/
 *.mp4
 *.mov
 *.MOV
+.DS_Store
+vids_demo_ss/
