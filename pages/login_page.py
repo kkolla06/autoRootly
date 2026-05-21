@@ -1,7 +1,5 @@
+import time
 from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.common.actions import interaction
-from selenium.webdriver.common.actions.action_builder import ActionBuilder
-from selenium.webdriver.common.actions.pointer_input import PointerInput
 from pages.base_page import BasePage
 from pages.landing_page import LandingPage
 
@@ -49,6 +47,11 @@ class LoginPage(BasePage):
         "**/XCUIElementTypeLink[2]",
     )
 
+    # iOS SFAutoFillInputView — appears in a separate window when the password
+    # field is tapped. Tapping "Keyboard" dismisses it and routes the keyboard
+    # to the password field. Confirmed from rootly-login_web.xml (Window[3]).
+    AUTOFILL_KEYBOARD_BUTTON = ("accessibility id", "keyboard")
+
     # Error surfaces — exact ID not captured in current XML; match generic web errors.
     ERROR_MESSAGE = (
         AppiumBy.IOS_PREDICATE,
@@ -67,18 +70,21 @@ class LoginPage(BasePage):
         """Full happy-path login: Landing → Log in → fill form → Sign in."""
         if not self.is_visible(self.EMAIL_FIELD, timeout=2):
             self.open_from_landing()
+        time.sleep(0.5)
         self.tap(self.EMAIL_FIELD)
         self.type_text(self.EMAIL_FIELD, email)
+        self.tap_coordinate(350, 490)  # dismiss keyboard after email
+        self.tap_coordinate(180, 520)  # tap password field
         self.type_text(self.PASSWORD_FIELD, password)
-        self.tap(self.SIGN_IN_BUTTON)
-        # Dismiss iOS toast/confirmation that appears after tapping Sign in.
-        touch = PointerInput(interaction.POINTER_TOUCH, "touch")
-        actions = ActionBuilder(self.driver, mouse=touch)
-        actions.pointer_action.move_to_location(270, 500)
-        actions.pointer_action.pointer_down()
-        actions.pointer_action.pause(0.05)
-        actions.pointer_action.release()
-        actions.perform()
+        self.tap_coordinate(350, 490)  # dismiss keyboard after password
+        time.sleep(0.5)
+        self.tap_coordinate(55, 570)   
+        time.sleep(0.5)
+        self.tap_coordinate(180, 640)  # Sign in button
+        time.sleep(1)
+        for _ in range(4):             # step through post-login info/permissions screens
+            time.sleep(1)
+            self.tap_coordinate(60, 760)
 
     def is_form_visible(self, timeout: int = 5) -> bool:
         return (

@@ -1,0 +1,204 @@
+Rootly iOS Automation + Bug Report
+Reporter: Kaushik Kolla (Visaero / SDET)
+Date: 2026-05-20
+Environment: <iPhone model — TBD> · iOS <version — TBD> · App <version — TBD>
+
+────────────────────────────────────────────────────────────
+
+BUG 1: iOS - Landing Page - Log in form - Google OAuth - Redirects to Rootly's webpage [HIGH]
+
+Steps:
+Launch app
+Tap 'Log in' button
+Confirm iOS toast
+Tap Google icon
+Note web redirection to rootly.com - unable to login
+
+Expected: Google OAuth redirects to Google Sign-in
+Actual: App redirects to rootly.com marketing page
+
+Since users can only log in with a business email, Google OAuth should be removed
+
+────────────────────────────────────────────────────────────
+
+BUG 2: iOS - Settings - Log Out - Web session persists & re-login blocked [CRITICAL]
+
+Steps:
+Launch app
+Log in with 'Remember me' enabled
+Navigate to settings
+Tap 'Log Out' button
+Confirm iOS toast
+Verify landing screen
+Tap 'Log in' button
+Note web login form does not open
+
+Expected: Tapping ‘Log in’ opens a fresh web login form ready for credentials
+Actual: Cached web session opens rootly.com with user logged in
+
+Web storage should be cleared on ‘Log Out’ as well as ‘Clear Cache & Data’
+
+────────────────────────────────────────────────────────────
+
+BUG 3: iOS - Home - Navigation - Create Menu Overlay - Bottom nav remains tappable behind open menu [MEDIUM]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Tap '+' to open create menu
+Tap any bottom nav area behind open menu
+Note redirection to underlying tab while menu remains open
+
+Expected: Open menu should not cover bottom nav
+Actual: Open menu overlays bottom nav but remains tappable through the overlay
+
+────────────────────────────────────────────────────────────
+
+BUG 4: iOS - Home - My Activity - Alert/Incidents Counts - Count not updated until manual hard refresh [HIGH]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Tap '+' to open create menu
+Tap 'Create Alert'/'Create Incident' button
+Fill required fields
+Tap 'Submit' button
+Note ‘Ongoing Alerts’/’Ongoing Incidents’ count not updated
+Pull down to refresh
+Note ‘Ongoing Alerts’/’Ongoing Incidents’ count updated
+
+Expected: A successful create auto-refreshes the count/home screen
+Actual: Count is not updated until pull-to-refresh
+
+────────────────────────────────────────────────────────────
+
+BUG 5: iOS - Settings - About - Keyboard can't be dismissed unless name is edited [LOW]
+
+Video: [Video: TBD]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Navigate to Settings
+Tap 'About' row
+Tap 'Device Name' field
+Tap 'Done' on iOS keyboard
+Note unable to dismiss keyboard
+Edit 'Device Name' field
+Note keyboard dismisses on ‘Done’
+
+Expected: Done dismisses the keyboard regardless of whether the value was edited
+Actual: Done is inactive when the value is unchanged and keyboard does not dismiss
+
+────────────────────────────────────────────────────────────
+
+BUG 6: iOS - Settings - About - UDID / Device Info revealed on double-tap of Version row [LOW]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Navigate to Settings
+Tap 'About' row
+Tap 'Version' row once
+Note no change
+Tap 'Version' row again
+Note UDID / Device Info appears
+
+Expected: Device Info accessible via a visible, labeled row or disclosure indicator
+Actual: UDID is hidden behind an undocumented double-tap
+
+UDID is sensitive, expose under its own row or gate behind a debug build.
+
+────────────────────────────────────────────────────────────
+
+BUG 7: iOS - Landing - Log in form - Email field shows 'Incorrect email' on every keystroke [LOW]
+
+Steps:
+Launch app
+Tap 'Log in' button
+Tap ‘Email’ field
+Type a valid business email one character at a time
+Note 'Incorrect email' error fires after each keystroke before the email is complete
+
+Expected: Email format validation runs on submit, not mid-typing
+Actual: Error flickers in and out per keystroke, suggesting the email is wrong while being correctly entered
+
+────────────────────────────────────────────────────────────
+
+BUG 8: iOS - Alerts - Filters - 'Views' has no empty-state guidance or web redirect [LOW]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Navigate to Alerts tab
+Tap Views icon in filter bar
+Note empty sheet with no guidance or redirect
+
+Expected: Link to add a view in Rootly Web or in-app copy explaining how to create a view
+Actual: Sheet shows empty state and text "Choose a saved view from Rootly Web" with no link or instructions
+
+────────────────────────────────────────────────────────────
+
+BUG 9: iOS - Alerts - Alert Detail - Create Incident - Title not autofilled from Triggered alert [HIGH]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Navigate to Alerts tab
+Open any Triggered alert
+Tap '+' to open action menu
+Tap 'Create Incident'
+Note ‘Title’ field is empty
+
+Note: Incidents created from alerts in ‘Acknowledged’ or ‘Resolved’ states have ‘Title’ field prefilled
+
+Expected: Title pre-fills with the originating alert's title
+Actual: Title is blank, user must manually re-type the alert title
+
+────────────────────────────────────────────────────────────
+
+BUG 10: iOS - Incidents - Create Incident - Empty form submit creates incident with random title [CRITICAL]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Tap '+' to open create menu
+Tap 'Create Incident'
+Tap 'Submit' button (on empty form)
+Navigate to Incidents tab
+Note new row with auto-generated random title
+
+Expected: Empty Title is blocked by inline validation and prevents form submission
+Actual: Form submits successfully and new incident is created with a random title
+
+
+
+────────────────────────────────────────────────────────────
+
+BUG 11: iOS - Landing - Log in - iOS 'Save Password' toast auto-dismisses before user input [MEDIUM]
+
+Steps:
+Launch app (fresh install)
+Tap 'Log in' button
+Enter valid email and password
+Tap 'Sign in' button
+Note iOS 'Save Password' toast flashes and disappears before input
+
+Expected: Web page is not dismissed and user is not redirected to home screen until the 'Save Password' toast is interacted with
+Actual: Foreground transition dismisses the toast before user can interact; credential is never saved to iCloud Keychain
+
+────────────────────────────────────────────────────────────
+
+BUG? 12: iOS - Alerts - Alert Detail - Escalating an Acknowledged/Resolved alert removes it from the list [unsure if this is a bug]
+
+Steps:
+Launch app (logged in)
+Verify on home screen
+Navigate to Alerts tab
+Tap an Acknowledged or Resolved alert
+Tap Escalate (Resolved) or '+' → Escalate (Acknowledged)
+Tap 'Confirm'
+Fill responder and urgency
+Tap 'Escalate' button
+Tap back to return to Alerts list
+Note alert is missing from the list

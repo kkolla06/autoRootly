@@ -55,15 +55,15 @@ Here's the full map:
     test_plus_tab_opens_create_menu
 
 
-[test_alerts.py]        TODO: we need to set it up properly where we create 1/2 alerts then go through the rest of it, lets assume we have 0 alerts when we start
+✅[test_alerts.py]        TODO: we need to set it up properly where we create 1/2 alerts then go through the rest of it, lets assume we have 0 alerts when we start
     test_alerts_list_loads
     test_alerts_list_shows_rows_with_metadata
     test_alerts_filters_combined
     test_alerts_sort_and_views
-    test_tapping_alert_opens_detail             TODO: remove - tap tested by test_alert_detail_header_combined
+    test_tapping_alert_opens_detail             
     test_alerts_list_scrollable
-    test_alert_detail_header_combined           TODO: verify visibility + accuracy of few alert details too
-    test_alert_details_tab_default_and_cards    TODO: how is this different? from prev test case?
+    test_alert_detail_header_combined           
+    test_alert_details_tab_default_and_cards    
     test_alert_all_three_tabs_cycle
     test_escalate_button_visible_on_resolved
     test_back_from_alert_detail
@@ -79,7 +79,7 @@ Here's the full map:
     test_share_alert
 
 
-[test_incident_lifecycle.py]
+✅[test_incident_lifecycle.py]
     test_incidents_list_loads
     test_incidents_list_shows_rows_with_metadata
     test_incidents_filters_combined
@@ -91,7 +91,6 @@ Here's the full map:
     test_add_related_alert_button_visible
     test_back_navigation_returns_to_list
     test_incident_state_machine
-    test_create_incident_parametrized
     test_create_incident_validation_combined
 
 

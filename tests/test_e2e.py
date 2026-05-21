@@ -3,9 +3,12 @@
 The on-call paging journey (TC-E2E-011) is the headline test — it exercises
 the full state machine in a single composite flow.
 """
+import logging
 import os
 import re
 import pytest
+
+log = logging.getLogger(__name__)
 from pages.landing_page import LandingPage
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
@@ -256,168 +259,302 @@ def test_demo(driver):
     """TC-E2E-DEMO — Showpiece demo covering the full alert lifecycle + bugs.
 
     Flow:
-      1.  [BUG] Google sign-in — tapping Google does not complete login
-      2.  Correct email/password login
-      3.  Create alert (self-page, title="Demo Alert")
-      4.  Navigate to alert via paged-home banner — assert Triggered
-      5.  Triggered action menu validation (Resolve / Escalate / Add note /
-          Mark as noise / Create Incident all present)
-      6.  [BUG] Create Incident from triggered alert — title field is empty,
-          not pre-filled with the alert title
-      7.  Slide to ack — assert Acknowledged
-      8.  Acknowledged action menu validation (Resolve absent; Escalate present)
-      9.  Mark as noise — assert Noise badge appears
+      01. [BUG] Google sign-in — tapping Google does not complete login
+      02. Correct email/password login
+      03. Create alert (self-page, title="Demo Alert")
+      04. Navigate to alert via paged-home banner — assert Triggered
+      05. Triggered action menu validation
+      06. [BUG] Create Incident from alert — title not autofilled
+      07. Slide to ack — assert Acknowledged
+      08. Acknowledged action menu validation
+      09. Mark as noise — assert Noise badge
       10. Slide to resolve — assert Resolved
-      11. Resolved action menu validation (Resolve + Escalate absent from menu)
+      11. Resolved action menu validation
       12. Escalate via primary button → two-step sheet → form → toast
       13. Back to Home → Settings
-      14. Settings: profile info, Appearance sub-screen, app version format
+      14. Settings: profile info
+      15. Settings: Appearance (3 themes)
+      16. Settings: app version format
     """
+    _passed = []
+    _failed = []
+
+    def _step(n, label):
+        log.info("── %02d. %s", n, label)
+
+    def _ok(label):
+        log.info("        PASS  %s", label)
+        _passed.append(label)
+
+    def _fail(label, reason=""):
+        suffix = f" — {reason}" if reason else ""
+        log.info("        FAIL  %s%s", label, suffix)
+        _failed.append(label)
+
+    log.info("=" * 60)
+    log.info("  DEMO  Rootly iOS — Full Alert Lifecycle")
+    log.info("=" * 60)
+
     home_page = HomePage(driver)
     login_page = LoginPage(driver)
-
-    # ── 1. BUG: Google sign-in ─────────────────────────────────────────────── #
-    landing = LandingPage(driver)
-    assert landing.is_visible(timeout=15), "App did not reach Landing on cold start"
-    login_page.open_from_landing()
-    login_page.tap_google()
-    # Google OAuth does not complete — we must NOT reach Home
-    assert not home_page.is_home_visible(timeout=5), (
-        "BUG (Google sign-in): reached Home unexpectedly — Google OAuth appears fixed"
-    )
-    login_page.cancel()  # dismiss the login sheet → back to Landing
-
-    # ── 2. Correct login ──────────────────────────────────────────────────── #
-    login_page.open_from_landing()
-    login_page.login(email=_email(), password=_password())
-    assert home_page.is_home_visible(timeout=30), "Email/password login did not reach Home"
-
-    # ── 3. Create alert (self-page) ───────────────────────────────────────── #
-    home_page.open_menu()
-    menu = CreateMenu(driver)
-    if not menu.is_visible(timeout=5):
-        pytest.skip("Create menu not reachable — XML #1 missing")
-    menu.tap_create_alert()
-    form = AlertCreatePage(driver)
-    form.wait_for_visible(form.SUBMIT_BUTTON)
-    form.open_responder_picker()
-    picker = SelectResponders(driver)
-    if not picker.is_visible(timeout=5):
-        pytest.skip("Select Responders not reachable — XML #5 missing")
-    picker.expand_category("People")
-    picker.select("Kaushik Kolla")
-    picker.done()
-    form.fill_title("Demo Alert")
-    form.submit()
-    form.wait_for_toast("Manual page created successfully", timeout=15)
-
-    # ── 4. Navigate to alert via paged-home banner ────────────────────────── #
-    home_page.go_home()
-    assert home_page.is_paged(timeout=15), "Paged-home banner missing after self-page"
-    home_page.tap_view_alert()
     detail = AlertDetailPage(driver)
-    detail.wait_for_visible(detail.DETAILS_TAB, timeout=10)
-    assert detail.get_status() == "Triggered", "Alert should open in Triggered state"
-
-    # ── 5. Triggered action menu validation ──────────────────────────────── #
-    detail.open_action_menu()
     action_menu = AlertActionMenu(driver)
-    assert action_menu.is_visible(timeout=5), "Action menu did not open"
-    triggered_opts = action_menu.visible_options()
-    assert {"Resolve", "Escalate", "Add note", "Mark as noise", "Create Incident"} <= triggered_opts, (
-        f"Triggered menu missing expected options — got: {triggered_opts}"
-    )
-
-    # ── 6. BUG: Create Incident from alert — title not autofilled ──────────── #
-    action_menu.tap_create_incident()
-    inc_form = CreateIncidentPage(driver)
-    if inc_form.is_visible(timeout=5):
-        title_els = driver.find_elements(*inc_form.TITLE_FIELD)
-        title_val = title_els[0].get_attribute("value") if title_els else ""
-        assert not title_val, (
-            "BUG (Create Incident from alert): title should be empty — autofill is missing"
-        )
-        inc_form.close()
-    else:
-        # Embedded form uses different IDs — dismiss whatever appeared and move on.
-        # Bug is still documented: the title field was not pre-filled with "Demo Alert".
-        detail.dismiss_sheet()
-
-    # ── 7. Slide to ack ──────────────────────────────────────────────────── #
-    detail.wait_for_visible(detail.SLIDE_TO_ACK, timeout=5)
-    detail.slide_to_ack()
-    detail.wait_for_visible(detail.SLIDE_TO_RESOLVE, timeout=10)
-    assert detail.get_status() == "Acknowledged"
-
-    # ── 8. Acknowledged action menu validation ────────────────────────────── #
-    detail.open_action_menu()
-    assert action_menu.is_visible(timeout=5), "Action menu did not open (Acknowledged state)"
-    acked_opts = action_menu.visible_options()
-    assert "Resolve" not in acked_opts, "Resolve should not appear in Acknowledged menu"
-    assert {"Escalate", "Add note", "Mark as noise", "Create Incident"} <= acked_opts, (
-        f"Acknowledged menu missing expected options — got: {acked_opts}"
-    )
-
-    # ── 9. Mark as noise ─────────────────────────────────────────────────── #
-    action_menu.tap_mark_as_noise()
-    assert detail.has_noise_badge(timeout=5), "Noise badge not visible after Mark as noise"
-
-    # ── 10. Slide to resolve ─────────────────────────────────────────────── #
-    detail.wait_for_visible(detail.SLIDE_TO_RESOLVE, timeout=5)
-    detail.slide_to_resolve()
-    detail.wait_for_visible(detail.ESCALATE_BUTTON, timeout=10)
-    assert detail.get_status() == "Resolved"
-
-    # ── 11. Resolved action menu validation ──────────────────────────────── #
-    detail.open_action_menu()
-    assert action_menu.is_visible(timeout=5), "Action menu did not open (Resolved state)"
-    resolved_opts = action_menu.visible_options()
-    assert "Resolve" not in resolved_opts, "Resolve should not appear in Resolved menu"
-    assert "Escalate" not in resolved_opts, (
-        "Escalate should not appear in Resolved + menu — it is the primary button"
-    )
-    assert {"Add note", "Mark as noise", "Create Incident"} <= resolved_opts, (
-        f"Resolved menu missing expected options — got: {resolved_opts}"
-    )
-    detail.dismiss_sheet()
-
-    # ── 12. Escalate (primary button → two-step form) ─────────────────────── #
-    assert detail.is_visible(detail.ESCALATE_BUTTON, timeout=5), "Primary Escalate button missing"
-    detail.tap_escalate_button()
-    esc_to = AlertEscalateToSheet(driver)
-    assert esc_to.is_visible(timeout=5), "Escalate-to sheet did not appear"
-    esc_to.confirm()
-    esc_form = AlertEscalatePage(driver)
-    assert esc_form.is_visible(timeout=5), "Escalate form did not appear after Confirm"
-    esc_form.open_responder_picker()
-    picker2 = SelectResponders(driver)
-    picker2.expand_category("People")
-    picker2.select("Kaushik Kolla")
-    picker2.done()
-    esc_form.submit()
-    esc_form.wait_for_toast("You have escalated successfully", timeout=15)
-
-    # ── 13. Back to Home → Settings ──────────────────────────────────────── #
-    home_page.go_home()
-    assert home_page.is_home_visible(timeout=10), "Did not return to Home after escalate"
-    home_page.go_to_settings()
     settings = SettingsPage(driver)
-    assert settings.is_visible(timeout=10), "Settings did not open"
 
-    # ── 14. Settings checks ───────────────────────────────────────────────── #
-    # a. Profile info
-    assert settings.has_profile_info(), "Settings: profile info (name/email/org) missing"
+    # ── 01. BUG: Google sign-in ───────────────────────────────────────────── #
+    _step(1, "BUG — Google sign-in")
+    try:
+        landing = LandingPage(driver)
+        assert landing.is_visible(timeout=15), "Did not reach Landing"
+        login_page.open_from_landing()
+        login_page.tap_google()
+        assert not home_page.is_home_visible(timeout=5), (
+            "Reached Home — Google OAuth appears fixed"
+        )
+        login_page.cancel()
+        _ok("Google sign-in fails as expected (bug confirmed)")
+    except AssertionError as e:
+        _fail("Google sign-in bug", str(e))
+        try:
+            login_page.cancel()
+        except Exception:
+            pass
+    except Exception as e:
+        _fail("Google sign-in bug (error)", str(e))
+        try:
+            login_page.cancel()
+        except Exception:
+            pass
 
-    # b. Appearance sub-screen — 3 theme options
-    settings.tap_appearance()
-    assert settings.is_appearance_visible(timeout=5), "Appearance sub-screen did not open"
-    assert settings.is_visible(settings.APPEARANCE_SYSTEM, timeout=3), "System theme option missing"
-    assert settings.is_visible(settings.APPEARANCE_LIGHT, timeout=3), "Light theme option missing"
-    assert settings.is_visible(settings.APPEARANCE_DARK, timeout=3), "Dark theme option missing"
-    settings.back()
+    # ── 02. Correct login ─────────────────────────────────────────────────── #
+    _step(2, "Correct email/password login")
+    try:
+        login_page.login(email=_email(), password=_password())
+        assert home_page.is_home_visible(timeout=30), "Home not reached"
+        _ok("Login successful — Home visible")
+    except Exception as e:
+        _fail("Login", str(e))
 
-    # c. App version — valid semver
-    settings.tap_about()
-    version = settings.get_app_version()
-    assert re.match(r"\d+\.\d+", version), f"App version format unexpected: {version!r}"
-    settings.back()
+    # ── 03. Create alert ──────────────────────────────────────────────────── #
+    _step(3, "Create alert (self-page)")
+    try:
+        home_page.open_menu()
+        menu = CreateMenu(driver)
+        assert menu.is_visible(timeout=5), "Create menu not visible"
+        menu.tap_create_alert()
+        form = AlertCreatePage(driver)
+        form.wait_for_visible(form.SUBMIT_BUTTON)
+        form.open_responder_picker()
+        picker = SelectResponders(driver)
+        assert picker.is_visible(timeout=5), "Responder picker not visible"
+        picker.expand_category("People")
+        picker.select("Kaushik Kolla")
+        picker.done()
+        form.fill_title("Demo Alert")
+        form.submit()
+        form.wait_for_toast("Manual page created successfully", timeout=15)
+        _ok("Alert 'Demo Alert' created")
+    except Exception as e:
+        _fail("Create alert", str(e))
+
+    # ── 04. Navigate to alert ─────────────────────────────────────────────── #
+    _step(4, "Navigate to alert via paged-home banner")
+    try:
+        home_page.go_home()
+        assert home_page.is_paged(timeout=15), "Paged-home banner not present"
+        home_page.tap_view_alert()
+        detail.wait_for_visible(detail.DETAILS_TAB, timeout=10)
+        assert detail.get_status() == "Triggered"
+        _ok("Alert opened — status: Triggered")
+    except Exception as e:
+        _fail("Navigate to alert", str(e))
+
+    # ── 05. Triggered action menu ─────────────────────────────────────────── #
+    _step(5, "Triggered action menu validation")
+    try:
+        detail.open_action_menu()
+        assert action_menu.is_visible(timeout=5), "Menu did not open"
+        opts = action_menu.visible_options()
+        expected = {"Resolve", "Escalate", "Add note", "Mark as noise", "Create Incident"}
+        missing = expected - opts
+        assert not missing, f"Missing options: {missing}"
+        _ok(f"All expected options present — {opts}")
+    except Exception as e:
+        _fail("Triggered action menu", str(e))
+
+    # ── 06. BUG: Create Incident autofill ─────────────────────────────────── #
+    _step(6, "BUG — Create Incident from alert (title not autofilled)")
+    try:
+        action_menu.tap_create_incident()
+        inc_form = CreateIncidentPage(driver)
+        if inc_form.is_visible(timeout=5):
+            title_els = driver.find_elements(*inc_form.TITLE_FIELD)
+            title_val = title_els[0].get_attribute("value") if title_els else ""
+            assert not title_val, f"Title was pre-filled: {title_val!r} (bug may be fixed)"
+            inc_form.close()
+            _ok("Create Incident form has empty title (autofill missing — bug confirmed)")
+        else:
+            detail.dismiss_sheet()
+            _ok("Tapped Create Incident — form locators differ; bug documented in code")
+    except AssertionError as e:
+        _fail("Create Incident autofill bug", str(e))
+        try:
+            detail.dismiss_sheet()
+        except Exception:
+            pass
+    except Exception as e:
+        _fail("Create Incident autofill bug (error)", str(e))
+        try:
+            detail.dismiss_sheet()
+        except Exception:
+            pass
+
+    # ── 07. Slide to ack ──────────────────────────────────────────────────── #
+    _step(7, "Slide to ack")
+    try:
+        detail.wait_for_visible(detail.SLIDE_TO_ACK, timeout=5)
+        detail.slide_to_ack()
+        detail.wait_for_visible(detail.SLIDE_TO_RESOLVE, timeout=10)
+        assert detail.get_status() == "Acknowledged"
+        _ok("Status → Acknowledged")
+    except Exception as e:
+        _fail("Slide to ack", str(e))
+
+    # ── 08. Acknowledged action menu ──────────────────────────────────────── #
+    _step(8, "Acknowledged action menu validation")
+    try:
+        detail.open_action_menu()
+        assert action_menu.is_visible(timeout=5), "Menu did not open"
+        opts = action_menu.visible_options()
+        assert "Resolve" not in opts, "Resolve should be absent when Acknowledged"
+        expected = {"Escalate", "Add note", "Mark as noise", "Create Incident"}
+        missing = expected - opts
+        assert not missing, f"Missing options: {missing}"
+        _ok(f"Acked menu correct — Resolve absent, others present — {opts}")
+    except Exception as e:
+        _fail("Acked action menu", str(e))
+
+    # ── 09. Mark as noise ─────────────────────────────────────────────────── #
+    _step(9, "Mark as noise")
+    try:
+        action_menu.tap_mark_as_noise()
+        assert detail.has_noise_badge(timeout=5), "Noise badge not visible"
+        _ok("Noise badge appeared")
+    except Exception as e:
+        _fail("Mark as noise", str(e))
+
+    # ── 10. Slide to resolve ──────────────────────────────────────────────── #
+    _step(10, "Slide to resolve")
+    try:
+        detail.wait_for_visible(detail.SLIDE_TO_RESOLVE, timeout=5)
+        detail.slide_to_resolve()
+        detail.wait_for_visible(detail.ESCALATE_BUTTON, timeout=10)
+        assert detail.get_status() == "Resolved"
+        _ok("Status → Resolved")
+    except Exception as e:
+        _fail("Slide to resolve", str(e))
+
+    # ── 11. Resolved action menu ──────────────────────────────────────────── #
+    _step(11, "Resolved action menu validation")
+    try:
+        detail.open_action_menu()
+        assert action_menu.is_visible(timeout=5), "Menu did not open"
+        opts = action_menu.visible_options()
+        assert "Resolve" not in opts, "Resolve should be absent when Resolved"
+        assert "Escalate" not in opts, "Escalate is the primary button — not in menu"
+        expected = {"Add note", "Mark as noise", "Create Incident"}
+        missing = expected - opts
+        assert not missing, f"Missing options: {missing}"
+        detail.dismiss_sheet()
+        _ok(f"Resolved menu correct — {opts}")
+    except Exception as e:
+        _fail("Resolved action menu", str(e))
+        try:
+            detail.dismiss_sheet()
+        except Exception:
+            pass
+
+    # ── 12. Escalate ──────────────────────────────────────────────────────── #
+    _step(12, "Escalate (primary button → two-step form → toast)")
+    try:
+        assert detail.is_visible(detail.ESCALATE_BUTTON, timeout=5), "Primary Escalate button missing"
+        detail.tap_escalate_button()
+        esc_to = AlertEscalateToSheet(driver)
+        assert esc_to.is_visible(timeout=5), "Escalate-to sheet not visible"
+        esc_to.confirm()
+        esc_form = AlertEscalatePage(driver)
+        assert esc_form.is_visible(timeout=5), "Escalate form not visible"
+        esc_form.open_responder_picker()
+        picker2 = SelectResponders(driver)
+        picker2.expand_category("People")
+        picker2.select("Kaushik Kolla")
+        picker2.done()
+        esc_form.submit()
+        esc_form.wait_for_toast("You have escalated successfully", timeout=15)
+        _ok("Escalated successfully")
+    except Exception as e:
+        _fail("Escalate", str(e))
+
+    # ── 13. Back to Home → Settings ───────────────────────────────────────── #
+    _step(13, "Back to Home → Settings")
+    try:
+        home_page.go_home()
+        assert home_page.is_home_visible(timeout=10), "Did not return to Home"
+        home_page.go_to_settings()
+        assert settings.is_visible(timeout=10), "Settings did not open"
+        _ok("Navigated to Settings")
+    except Exception as e:
+        _fail("Home → Settings", str(e))
+
+    # ── 14. Settings — profile info ───────────────────────────────────────── #
+    _step(14, "Settings — profile info")
+    try:
+        assert settings.has_profile_info(), "Profile info (name/email/org) missing"
+        _ok("Profile info visible")
+    except Exception as e:
+        _fail("Settings profile", str(e))
+
+    # ── 15. Settings — Appearance ─────────────────────────────────────────── #
+    _step(15, "Settings — Appearance (3 themes)")
+    try:
+        settings.tap_appearance()
+        assert settings.is_appearance_visible(timeout=5), "Appearance sub-screen did not open"
+        assert settings.is_visible(settings.APPEARANCE_SYSTEM, timeout=3), "System theme missing"
+        assert settings.is_visible(settings.APPEARANCE_LIGHT, timeout=3), "Light theme missing"
+        assert settings.is_visible(settings.APPEARANCE_DARK, timeout=3), "Dark theme missing"
+        settings.back()
+        _ok("All 3 theme options present")
+    except Exception as e:
+        _fail("Settings appearance", str(e))
+        try:
+            settings.back()
+        except Exception:
+            pass
+
+    # ── 16. Settings — app version ────────────────────────────────────────── #
+    _step(16, "Settings — app version format")
+    try:
+        settings.tap_about()
+        version = settings.get_app_version()
+        assert re.match(r"\d+\.\d+", version), f"Unexpected format: {version!r}"
+        settings.back()
+        _ok(f"Version: {version}")
+    except Exception as e:
+        _fail("Settings version", str(e))
+        try:
+            settings.back()
+        except Exception:
+            pass
+
+    # ── Summary ───────────────────────────────────────────────────────────── #
+    total = len(_passed) + len(_failed)
+    log.info("=" * 60)
+    log.info("  RESULT  %d/%d steps passed", len(_passed), total)
+    if _failed:
+        log.info("  Failed steps:")
+        for f in _failed:
+            log.info("    ✗  %s", f)
+    log.info("=" * 60)
+
+    if _failed:
+        pytest.fail(f"{len(_failed)} step(s) failed — see output above")

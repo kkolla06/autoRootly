@@ -192,10 +192,10 @@ class AlertDetailPage(BasePage):
         Coordinates from Appium Inspector per state:
           x=180, y=400
         """
-        x = 180
+        x = 340
         touch = PointerInput(interaction.POINTER_TOUCH, "touch")
         actions = ActionBuilder(self.driver, mouse=touch)
-        actions.pointer_action.move_to_location(x, 400)
+        actions.pointer_action.move_to_location(x, 770)
         actions.pointer_action.pointer_down()
         actions.pointer_action.pause(0.05)
         actions.pointer_action.release()

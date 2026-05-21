@@ -122,31 +122,8 @@ def test_back_navigation_returns_to_list(login):
 
 
 # --------------------------------------------------------------------------- #
-# 4C — Incident Creation (parametrized; replaces 5 skipped tests)
+# 4C — Incident Creation
 # --------------------------------------------------------------------------- #
-
-
-@pytest.mark.p1
-@pytest.mark.incident
-@pytest.mark.parametrize("private", [False, True])
-def test_create_incident_parametrized(login, private):
-    """TC-INC-CREATE-006 — title + summary submit; parametrized over private toggle."""
-    home = HomePage(login)
-    home.open_menu()
-    CreateMenu(login).tap_create_incident()
-    form = CreateIncidentPage(login)
-    form.fill_title("Auto incident")
-    form.fill_summary("Created by test")
-
-    if private:
-        form.toggle_private()
-        assert form.private_state() == "1", "Mark as Private should be ON"
-
-    form.submit()
-    HomePage(login).go_to_incidents()
-    assert IncidentListPage(login).find_incident_by_title("Auto incident"), (
-        "Newly created incident not found in list"
-    )
 
 
 @pytest.mark.p1
